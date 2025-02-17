@@ -9,9 +9,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Pawn" parent="." instance=ExtResource("1_svow3")]
-position = Vector2(472, 136)
-animation = &"walk"
-frame_progress = 0.0
+position = Vector2(424, 320)
 
 [node name="CastleBlue" type="Sprite2D" parent="."]
 position = Vector2(1088, 88)
