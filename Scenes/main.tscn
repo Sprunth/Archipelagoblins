@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2uk2jbp7lr6w"]
+
+[ext_resource type="PackedScene" uid="uid://174uuxrsphh2" path="res://Scenes/tilemap.tscn" id="1_f4ieg"]
+[ext_resource type="PackedScene" uid="uid://ctxrfqvhc7fvc" path="res://Scenes/pawn.tscn" id="1_svow3"]
+[ext_resource type="Texture2D" uid="uid://m0ndtcda6l0b" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="2_lpwrv"]
+[ext_resource type="Texture2D" uid="uid://cyrl5k8elqgab" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Blue.png" id="3_1xwfs"]
+[ext_resource type="Texture2D" uid="uid://bky11g2wj4vyo" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="4_muuma"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Pawn" parent="." instance=ExtResource("1_svow3")]
+position = Vector2(472, 136)
+animation = &"walk"
+frame_progress = 0.0
+
+[node name="CastleBlue" type="Sprite2D" parent="."]
+position = Vector2(1088, 88)
+texture = ExtResource("2_lpwrv")
+
+[node name="HouseBlue" type="Sprite2D" parent="."]
+position = Vector2(208, 96)
+texture = ExtResource("3_1xwfs")
+
+[node name="TowerBlue" type="Sprite2D" parent="."]
+position = Vector2(253, 384)
+texture = ExtResource("4_muuma")
+
+[node name="Map" parent="." instance=ExtResource("1_f4ieg")]
+z_index = -6
+metadata/_edit_lock_ = true
