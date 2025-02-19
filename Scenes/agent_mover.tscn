@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqcnuw2kgqm1m"]
+
+[ext_resource type="Script" path="res://Scripts/AgentMover.cs" id="1_cgjpd"]
+
+[node name="AgentMover" type="Node"]
+script = ExtResource("1_cgjpd")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://ctxrfqvhc7fvc"]
+[gd_scene load_steps=42 format=3 uid="uid://ctxrfqvhc7fvc"]
 
 [ext_resource type="Texture2D" uid="uid://es88hsgb25kn" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Blue/Pawn_Blue.png" id="1_jtv22"]
 [ext_resource type="Script" path="res://Scripts/Pawn.cs" id="2_eif3o"]
+[ext_resource type="PackedScene" uid="uid://dqcnuw2kgqm1m" path="res://Scenes/agent_mover.tscn" id="3_y4bru"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4u4ne"]
 atlas = ExtResource("1_jtv22")
@@ -315,4 +316,6 @@ debug_enabled = true
 wait_time = 0.1
 autostart = true
 
-[connection signal="timeout" from="navigation/Timer" to="." method="OnNavTimerTimeout"]
+[node name="AgentMover" parent="." instance=ExtResource("3_y4bru")]
+
+[connection signal="timeout" from="navigation/Timer" to="AgentMover" method="OnNavTimerTimeout"]
