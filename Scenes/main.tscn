@@ -25,4 +25,3 @@ texture = ExtResource("4_muuma")
 
 [node name="Map" parent="." instance=ExtResource("1_f4ieg")]
 z_index = -6
-metadata/_edit_lock_ = true

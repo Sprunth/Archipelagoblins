@@ -7,20 +7,29 @@ public partial class Pawn : CharacterBody2D
 	public int Speed { get; set; } = 200;
 	private Vector2 target = new Vector2(800, 300);
 
-
+	AnimatedSprite2D sprite;
 	NavigationAgent2D navAgent;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		navAgent = GetNode<NavigationAgent2D>("navigation/NavigationAgent2D");
+		sprite = GetNode<AnimatedSprite2D>("sprite");
 
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
+		if (Velocity.Length() > 0.1f)
+		{
+			sprite.Animation = "walk";
+		}
+		else
+		{
+			sprite.Animation = "idle";
+		}
+		base._Process(delta);
 	}
 
 	public override void _Input(InputEvent @event)
@@ -34,16 +43,16 @@ public partial class Pawn : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		//this.Position = this.Position.MoveToward(target, Speed * (float)delta);
-		//base._PhysicsProcess(delta);
+		if (Position.DistanceTo(target) < 1)
+		{
+			Velocity = Vector2.Zero;
+			return;
+		}
 
-
-		var direction = Vector2.Zero;
-
-		direction = navAgent.GetNextPathPosition() - GlobalPosition;
+		var direction = navAgent.GetNextPathPosition() - GlobalPosition;
 		direction = direction.Normalized();
 
-		Velocity = Velocity.Lerp(direction * Speed, 2f * (float)delta);
+		Velocity = Velocity.Lerp(direction * Speed, 50f * (float)delta);
 
 		MoveAndSlide();
 	}
