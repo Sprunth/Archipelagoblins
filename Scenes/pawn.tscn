@@ -302,7 +302,7 @@ script = ExtResource("2_eif3o")
 sprite_frames = SubResource("SpriteFrames_vo2y6")
 animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.156107
+frame_progress = 0.783201
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y4ylq")
@@ -310,12 +310,14 @@ shape = SubResource("CircleShape2D_y4ylq")
 [node name="navigation" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="navigation"]
+avoidance_enabled = true
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="navigation"]
 wait_time = 0.1
 autostart = true
 
-[node name="AgentMover" parent="." instance=ExtResource("3_y4bru")]
+[node name="AgentMover" parent="." node_paths=PackedStringArray("agent") instance=ExtResource("3_y4bru")]
+agent = NodePath("..")
 
 [connection signal="timeout" from="navigation/Timer" to="AgentMover" method="OnNavTimerTimeout"]

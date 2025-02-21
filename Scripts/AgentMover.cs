@@ -7,6 +7,7 @@ public partial class AgentMover : Node
 	public int Speed { get; set; } = 200;
 	private Vector2 target = new Vector2(800, 300);
 
+	[Export]
 	CharacterBody2D agent;
 	AnimatedSprite2D sprite;
 	NavigationAgent2D navAgent;
@@ -14,7 +15,6 @@ public partial class AgentMover : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		agent = GetParent<CharacterBody2D>();
 		if (agent == null)
 		{
 			GD.PrintErr("AgentMover: agent is null");
