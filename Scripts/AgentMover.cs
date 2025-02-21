@@ -39,7 +39,6 @@ public partial class AgentMover : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		Console.WriteLine("AgentMover._Process");
 		if (agent.Velocity.Length() > 0.1f)
 		{
 			sprite.Animation = "walk";
